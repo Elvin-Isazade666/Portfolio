@@ -45,11 +45,11 @@ const NavBar = () => {
         z-10 lg:px-16 md:px-12 sm:px-8'>
             <button className='flex-col justify-center items-center h-[19px] hidden lg:flex' onClick={handleClick}>
                 <span className={`bg-dark dark:bg-light rounded-sm h-0.5 w-6 block -translate-y-1 transition-all duration-300 ease-out
-                ${isOpen ? "rotate-45 translate-y-0.5" : "-translate-y-1"}`}></span>
+                ${isOpen ? "rotate-45 translate-y-1" : "-translate-y-1"}`}></span>
                 <span className={`bg-dark dark:bg-light rounded-sm h-0.5 my-0.5 w-6 block transition-all duration-300 ease-out
                 ${isOpen ? "opacity-0" : "opacity-100"}`}></span>
                 <span className={`bg-dark dark:bg-light rounded-sm h-0.5 w-6 block translate-y-1 transition-all duration-300 ease-out
-                ${isOpen ? "-rotate-45 -translate-y-1.5" : "translate-y-1"}`}></span>
+                ${isOpen ? "-rotate-45 -translate-y-0.5" : "translate-y-1"}`}></span>
             </button>
             <div className='w-full flex justify-between items-center lg:hidden'>
                 <nav>
@@ -104,7 +104,7 @@ const NavBar = () => {
                             <CustoMobileLink href={"/"} title={"Home"} className="" toggle={handleClick} />
                             <CustoMobileLink href={"/about"} title={"About"} className="" toggle={handleClick} />
                             <CustoMobileLink href={"/projects"} title={"Projects"} className="" toggle={handleClick} />
-                            <CustoMobileLink href={"/articles"} title={"Atricles"} className="" toggle={handleClick} />
+                            {/* <CustoMobileLink href={"/articles"} title={"Atricles"} className="" toggle={handleClick} /> */}
                         </nav>
                         <nav className='flex items-center justify-center flex-wrap mt-2'>
                             <motion.a href={"/"} target={"_blank"} whileHover={{ y: -2 }} whileTap={{ scale: 0.9 }} className="w-6 mr-3 sm:mx-1">
