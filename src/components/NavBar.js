@@ -5,7 +5,9 @@ import { DribbbleIcon, GithubIcon, LinkedInIcon, MoonIcon, PinterestIcon, SunIco
 import Logo from './Logo';
 import { motion } from 'framer-motion';
 import useThemeSwitcher from '@/hooks/useThemeSwitcher';
-import {BsFacebook, BsInstagram} from "react-icons/bs";
+import { BsFacebook, BsInstagram } from "react-icons/bs";
+import { AiOutlineClose } from "react-icons/ai";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 
 const CustomLink = ({ href, title, className = "" }) => {
@@ -43,13 +45,16 @@ const NavBar = () => {
     return (
         <header className='w-full px-32 py-8 font-medium flex items-center justify-between dark:text-light relative 
         z-10 lg:px-16 md:px-12 sm:px-8'>
-            <button className='flex-col justify-center items-center h-[19px] hidden lg:flex' onClick={handleClick}>
-                <span className={`bg-dark dark:bg-light rounded-sm h-0.5 w-6 block -translate-y-1 transition-all duration-300 ease-out
+            <button className='flex-col justify-center items-center hidden lg:flex' onClick={handleClick}>
+                {/* <span className={`bg-dark dark:bg-light rounded-sm h-0.5 w-6 block -translate-y-1 transition-all duration-300 ease-out
                 ${isOpen ? "rotate-45 translate-y-1" : "-translate-y-1"}`}></span>
                 <span className={`bg-dark dark:bg-light rounded-sm h-0.5 my-0.5 w-6 block transition-all duration-300 ease-out
                 ${isOpen ? "opacity-0" : "opacity-100"}`}></span>
                 <span className={`bg-dark dark:bg-light rounded-sm h-0.5 w-6 block translate-y-1 transition-all duration-300 ease-out
-                ${isOpen ? "-rotate-45 -translate-y-0.5" : "translate-y-1"}`}></span>
+                ${isOpen ? "-rotate-45 translate-y-[0.4rem]" : "translate-y-1"}`}></span> */}
+                {
+                    isOpen ? <AiOutlineClose size={30} /> : <RxHamburgerMenu size={30} />
+                }
             </button>
             <div className='w-full flex justify-between items-center lg:hidden'>
                 <nav>
@@ -88,17 +93,17 @@ const NavBar = () => {
             {
                 isOpen ? (
                     <motion.div
-                    initial={{
-                        scale:0,
-                        opacity:0,
-                        x:"-50%",
-                        y:"-50%"
-                    }}
-                    animate= {{
-                        scale:1,
-                        opacity:1
-                    }}
-                    className='min-w-[70vw] flex flex-col justify-between items-center fixed top-1/2 left-1/2 -translate-x-1/2
+                        initial={{
+                            scale: 0,
+                            opacity: 0,
+                            x: "-50%",
+                            y: "-50%"
+                        }}
+                        animate={{
+                            scale: 1,
+                            opacity: 1
+                        }}
+                        className='min-w-[70vw] flex flex-col justify-between items-center fixed top-1/2 left-1/2 -translate-x-1/2
             -translate-y-1/2 bg-dark/90 dark:bg-light/75 z-30 rounded-lg py-32 backdrop-blur-md'>
                         <nav className='flex flex-col items-center justify-center'>
                             <CustoMobileLink href={"/"} title={"Home"} className="" toggle={handleClick} />
@@ -117,11 +122,12 @@ const NavBar = () => {
                             <motion.a href={"/"} target={"_blank"} whileHover={{ y: -2 }} whileTap={{ scale: 0.9 }} className="w-6 mx-3 sm:mx-1">
                                 <LinkedInIcon />
                             </motion.a>
-                            <motion.a href={"/"} target={"_blank"} whileHover={{ y: -2 }} whileTap={{ scale: 0.9 }} className="w-6 mx-3 sm:mx-1">
-                                <PinterestIcon />
+                            <motion.a href={"https://www.facebook.com/profile.php?id=100079127442003"}
+                                target={"_blank"} whileHover={{ y: -2 }} whileTap={{ scale: 0.9 }} className="w-6 mx-3">
+                                <BsFacebook size={24} color='#0a66c2' />
                             </motion.a>
-                            <motion.a href={"/"} target={"_blank"} whileHover={{ y: -2 }} whileTap={{ scale: 0.9 }} className="w-6 ml-3 sm:mx-1">
-                                <DribbbleIcon />
+                            <motion.a href={"https://www.instagram.com/elvin66613/"} target={"_blank"} whileHover={{ y: -2 }} whileTap={{ scale: 0.9 }} className="w-6 ml-3">
+                                <BsInstagram size={24} color=' #F56040' />
                             </motion.a>
                             <button onClick={() => setMode(mode === "light" ? "dark" : "light")} className={
                                 `ml-3 flex items-center justify-center rounded-full p-1

@@ -11,6 +11,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      translate: {
+        "6": "0.4rem"
+      },
       fontFamily: {
         mont: ['var(--font-mont)', ...fontFamily.sans],
       },
